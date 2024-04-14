@@ -1,25 +1,31 @@
-import logo from './logo.svg';
-import './App.css';
+// src/App.js
+import React, { useState } from 'react';
 
-function App() {
+const App = () => {
+  const [inputValue, setInputValue] = useState('');
+  const [message, setMessage] = useState('');
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    const response = await fetch('http://localhost:4000/api/data', { // Updated URL
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({ value: inputValue }),
+  });
+    const data = await response.json();
+    setMessage(data.message);
+  };
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <h1>Send and Receive Data</h1>
+      <form onSubmit={handleSubmit}>
+        <input type="text" value={inputValue} onChange={(e) => setInputValue(e.target.value)} />
+        <button type="submit">Submit</button>
+      </form>
+      <p>{message}</p>
     </div>
   );
-}
+};
 
 export default App;
