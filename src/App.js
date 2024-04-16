@@ -2,7 +2,9 @@
 import React, { useState } from 'react';
 
 const App = () => {
-  const [inputValue, setInputValue] = useState('');
+  const [id, setId] = useState('');
+  const [name, setName] = useState('');
+  const [searchId, setSearchId] = useState('');
   const [message, setMessage] = useState('');
 
   const handleSubmit = async (e) => {
@@ -10,21 +12,46 @@ const App = () => {
     const response = await fetch('http://localhost:4000/api/data', { // Updated URL
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
-    body: JSON.stringify({ value: inputValue }),
+    body: JSON.stringify({
+      id: id,
+      name: name
+    }),
   });
-    const data = await response.json();
-    setMessage(data.message);
+  };
+
+  const handleSubmit2 = async (e) => {
+    e.preventDefault();
+    const response = await fetch('http://localhost:4000/api/dataget', { // Updated URL
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({
+      id: searchId,
+    }),
+  });
+  const data = await response.json();
+  console.log(data);
+  setMessage(data.name);
   };
 
   return (
+    <>
     <div>
-      <h1>Send and Receive Data</h1>
+      <h1>Send Data</h1>
       <form onSubmit={handleSubmit}>
-        <input type="text" value={inputValue} onChange={(e) => setInputValue(e.target.value)} />
+        <input type="text" placeholder="id" value={id} onChange={(e) => setId(e.target.value)} />
+        <input type="text" placeholder="name" value={name} onChange={(e) => setName(e.target.value)} />
         <button type="submit">Submit</button>
       </form>
-      <p>{message}</p>
     </div>
+    <div>
+    <h1>Receive Data</h1>
+    <form onSubmit={handleSubmit2}>
+      <input type="text" placeholder="id" value={searchId} onChange={(e) => setSearchId(e.target.value)}/>
+      <button type="submit">Submit</button>
+    </form>
+    <p>{message}</p>
+  </div>
+    </>
   );
 };
 
