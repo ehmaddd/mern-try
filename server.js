@@ -46,19 +46,18 @@ app.post('/api/dataget', async (req, res) => {
   try {
     const client = await pool.connect();
     const result = await client.query(
-      'SELECT name FROM student WHERE id = $1', // Updated SQL query to select name based on ID
+      'SELECT name FROM student WHERE id = $1',
       [id]
     );
-    const user = result.rows[0]; // Renamed variable to reflect that it's the user data, not a new user
+    const user = result.rows[0];
     client.release();
     if (!user) {
-      // If no user found for the given ID
       return res.status(404).json({ error: 'User not found' });
     }
-    res.status(200).json(user); // Send the user data as JSON response
+    res.status(200).json(user);
   } catch (err) {
     console.error('Error executing query', err);
-    res.status(500).json({ error: 'Error fetching user data' }); // Updated error response
+    res.status(500).json({ error: 'Error fetching user data' });
   }
 });
 
