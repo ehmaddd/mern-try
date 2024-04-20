@@ -61,6 +61,24 @@ app.post('/api/dataget', async (req, res) => {
   }
 });
 
+app.post('/api/datafetch', async (req, res) => {
+  try {
+    const client = await pool.connect();
+    const result = await client.query(
+      'SELECT * FROM student',
+    );
+    const user = result.rows[0];
+    client.release();
+    if (!user) {
+      return res.status(404).json({ error: 'User not found' });
+    }
+    res.status(200).json(user);
+  } catch (err) {
+    console.error('Error executing query', err);
+    res.status(500).json({ error: 'Error fetching user data' });
+  }
+});
+
 
 // Catch all other routes and return the React app
 app.get('*', (req, res) => {
