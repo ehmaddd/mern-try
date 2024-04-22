@@ -67,12 +67,12 @@ app.post('/api/datafetch', async (req, res) => {
     const result = await client.query(
       'SELECT * FROM student',
     );
-    const user = result.rows[0];
+    const users = result.rows; // Fetch all rows
     client.release();
-    if (!user) {
-      return res.status(404).json({ error: 'User not found' });
+    if (!users || users.length === 0) { // Check if no users found
+      return res.status(404).json({ error: 'No users found' });
     }
-    res.status(200).json(user);
+    res.status(200).json(users); // Return all users
   } catch (err) {
     console.error('Error executing query', err);
     res.status(500).json({ error: 'Error fetching user data' });
