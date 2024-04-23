@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
 import Navbar from './Navbar';
 
 const Insert = () => {
@@ -20,7 +21,7 @@ const Insert = () => {
   return (
     <>
     <div class="container">
-    <div class="box left-1-3">Left 1/3</div>
+    <div class="box left-1-3"><Link to="/">HOME</Link></div>
     <div class="box right-3-4">
       <h1>D A T A</h1>
     </div>

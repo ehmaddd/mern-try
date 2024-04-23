@@ -1,5 +1,7 @@
 import React, { useEffect, useState } from 'react';
+import { Link } from 'react-router-dom';
 import Navbar from './Navbar';
+import './style.css';
 
 const Home = () => {
   const [data, setData] = useState([]);
@@ -19,36 +21,37 @@ const Home = () => {
 
   return (
     <>
-      <div class="container">
-      <div class="box left-1-3">Left 1/3</div>
-      <div class="box right-3-4">
-        <h1>D A T A</h1>
-      </div>
-      <div class="box left-1-3">
-          <Navbar />
-      </div>
-      <div class="box right-3-4">
-      <table>
-  <thead>
-    <tr>
-      <th>ID</th>
-      <th>Name</th>
-    </tr>
-  </thead>
-  <tbody>
-    {data.map((datum) => (
-      <tr key={datum.id}>
-        <td>{datum.id}</td>
-        <td>{datum.name}</td>
-      </tr>
-    ))}
-  </tbody>
-</table>
-    </div>
+      <div class="grid-container">
+        <div class="box top-box">
+          <Link className="home-link" to="/">H O M E</Link>
+        </div>
+        <div class="box top-box">
+          <h1>STUDENTS MANAGEMENT SYSTEM</h1>
+        </div>
+        <div class="box bottom-box">
+            <Navbar />
+        </div>
+        <div class="box bottom-box data-box">
+          <h1>D A T A</h1>
+          <table>
+            <thead>
+              <tr>
+                <th>ID</th>
+                <th>Name</th>
+              </tr>
+            </thead>
+            <tbody>
+              {data.map((datum) => (
+                <tr key={datum.id}>
+                  <td>{datum.id}</td>
+                  <td>{datum.name}</td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
       </div>
     </>
-
-
   );
 };
 
