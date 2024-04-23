@@ -7,14 +7,18 @@ const Search = () => {
     const [searchId, setSearchId] = useState('');
     const [message, setMessage] = useState('');
 
-  const fetchData = async (e) => {
-    const fetchResponse = await fetch('http://localhost:4000/api/fetchid', {
-    method: 'POST',
-    headers: { 'Content-Type': 'application/json' },
-  });
-  const fetchedData = await fetchResponse.json();
-  setData(fetchedData);
-  }
+    const fetchData = async () => {
+      try {
+        const fetchResponse = await fetch('http://localhost:4000/api/fetchid', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+        });
+        const fetchedData = await fetchResponse.json();
+        setData(fetchedData);
+      } catch (error) {
+        console.error('Error fetching data:', error);
+      }
+    }
 
   useEffect(()=> {
     fetchData();
@@ -48,7 +52,18 @@ const Search = () => {
         <div class="box bottom-box data-box">
           <h1 className="title">S E A R C H</h1>
           <form onSubmit={handleSubmit2}>
-            <input type="text" placeholder="id" value={searchId} onChange={(e) => setSearchId(e.target.value)}/>
+            <select
+            className="student-id"
+            onChange={(e) => setSearchId(e.target.value)}>
+            <option value="null">Select Student Id</option>
+            {
+            data.map((datum) => {
+              return (
+                <option>{datum.id}</option>
+              )
+            })
+            }
+            </select>
             <button type="submit">Submit</button>
           </form>
           <p>{message}</p>

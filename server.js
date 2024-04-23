@@ -79,6 +79,24 @@ app.post('/api/datafetch', async (req, res) => {
   }
 });
 
+app.post('/api/fetchid', async (req, res) => {
+  try {
+    const client = await pool.connect();
+    const result = await client.query(
+      'SELECT id FROM student',
+    );
+    const users = result.rows; // Fetch all rows
+    client.release();
+    if (!users || users.length === 0) { // Check if no users found
+      return res.status(404).json({ error: 'No users found' });
+    }
+    res.status(200).json(users); // Return all users
+  } catch (err) {
+    console.error('Error executing query', err);
+    res.status(500).json({ error: 'Error fetching user data' });
+  }
+});
+
 // Catch all other routes and return the React app
 app.get('*', (req, res) => {
   res.sendFile(path.join(__dirname, 'build', 'index.html'));

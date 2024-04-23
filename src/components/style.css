@@ -83,8 +83,9 @@ form input {
   width: 25rem;
   height: 50px;
   font-size: 1rem;
-  border: 1px solid black;
+  border: 1px solid gainsboro;
   border-radius: 15px;
+  padding-left: 1rem;
 }
 
 form button {
@@ -107,4 +108,12 @@ form button:active {
   background-color: black;
   color: white;
   transform: scaleX(0.98);
+}
+
+.student-id {
+  appearance: none;
+  padding: 0.5rem 1rem;
+  height: 3rem;
+  border: 1px solid gainsboro;
+  border-radius: 8px;
 }
