@@ -18,7 +18,7 @@ const Insert = () => {
 
   return (
     <div>
-      <h1>Send Data</h1>
+      <h1>I N S E R T</h1>
       <form onSubmit={handleSubmit}>
         <input type="text" placeholder="id" value={id} onChange={(e) => setId(e.target.value)} />
         <input type="text" placeholder="name" value={name} onChange={(e) => setName(e.target.value)} />

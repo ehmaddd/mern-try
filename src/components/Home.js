@@ -18,7 +18,7 @@ const Home = () => {
 
   return (
     <div>
-      <h1>DATA</h1>
+      <h1>D A T A</h1>
       <table>
   <thead>
     <tr>

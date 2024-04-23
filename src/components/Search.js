@@ -19,7 +19,7 @@ const Search = () => {
 
   return (
     <div>
-    <h1>Receive Data</h1>
+    <h1>S E A R C H</h1>
     <form onSubmit={handleSubmit2}>
       <input type="text" placeholder="id" value={searchId} onChange={(e) => setSearchId(e.target.value)}/>
       <button type="submit">Submit</button>
