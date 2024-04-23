@@ -36,3 +36,8 @@
 .data-box {
   flex-direction: column;
 }
+
+.nav-box {
+  background-color: lightgray;
+  border: lightgray;
+}

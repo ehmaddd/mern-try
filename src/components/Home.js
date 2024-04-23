@@ -28,7 +28,7 @@ const Home = () => {
         <div class="box top-box">
           <h1>STUDENTS MANAGEMENT SYSTEM</h1>
         </div>
-        <div class="box bottom-box">
+        <div class="box bottom-box nav-box">
             <Navbar />
         </div>
         <div class="box bottom-box data-box">
