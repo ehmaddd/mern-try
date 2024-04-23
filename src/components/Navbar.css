@@ -29,3 +29,13 @@ li:hover {
 li:hover a {
   color: black;
 }
+
+li:active {
+  background-color: black;
+  border: 1px solid white;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+li:active a {
+  color: white;
+}
