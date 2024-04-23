@@ -8,7 +8,8 @@ const Navbar = () => {
       <nav>
         <ul>
           <li><Link to="/">Home</Link></li>
-          <li><Link to="/messages">Messages</Link></li>
+          <li><Link to="/insert">Insert</Link></li>
+          <li><Link to="/search">Search</Link></li>
         </ul>
       </nav>
       <Webroutes />
