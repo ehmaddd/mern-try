@@ -15,4 +15,17 @@ li {
   border: 1px solid black;
   border-radius: 25px;
   padding: 0.7rem;
+  transition: transform 0.3s ease;
+}
+
+li:hover {
+  border: 1px solid blue;
+  border-radius: 25px;
+  padding: 0.7rem;
+  background-color: white;
+  transform: translateX(1rem);
+}
+
+li:hover a {
+  color: black;
 }

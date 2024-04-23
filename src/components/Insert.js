@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import Navbar from './Navbar';
+import './style.css';
 
 const Insert = () => {
   const [id, setId] = useState('');
@@ -20,27 +21,26 @@ const Insert = () => {
 
   return (
     <>
-    <div class="container">
-    <div class="box left-1-3"><Link to="/">HOME</Link></div>
-    <div class="box right-3-4">
-      <h1>D A T A</h1>
-    </div>
-    <div class="box left-1-3">
-        <Navbar />
-    </div>
-    <div class="box right-3-4">
-    <div>
-      <h1>I N S E R T</h1>
-      <form onSubmit={handleSubmit}>
-        <input type="text" placeholder="id" value={id} onChange={(e) => setId(e.target.value)} />
-        <input type="text" placeholder="name" value={name} onChange={(e) => setName(e.target.value)} />
-        <button type="submit">Submit</button>
-      </form>
-    </div>
-  </div>
-    </div>
-  </>
-);
-};
+      <div class="grid-container">
+        <div class="box top-box">
+          <Link className="home-link" to="/">H O M E</Link>
+        </div>
+        <div class="box top-box">
+          <h1>STUDENTS MANAGEMENT SYSTEM</h1>
+        </div>
+        <div class="box bottom-box nav-box">
+            <Navbar />
+        </div>
+        <div class="box bottom-box data-box">
+          <h1>I N S E R T</h1>
+          <form onSubmit={handleSubmit}>
+            <input type="text" placeholder="id" value={id} onChange={(e) => setId(e.target.value)} />
+            <input type="text" placeholder="name" value={name} onChange={(e) => setName(e.target.value)} />
+            <button type="submit">Submit</button>
+          </form>
+        </div>
+      </div>
+    </>
+)};
 
 export default Insert;

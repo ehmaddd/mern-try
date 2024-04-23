@@ -1,5 +1,6 @@
 import { useState } from "react";
 import Navbar from './Navbar';
+import { Link } from "react-router-dom";
 
 const Search = () => {
   const [searchId, setSearchId] = useState('');
@@ -20,28 +21,27 @@ const Search = () => {
 
   return (
     <>
-    <div class="container">
-    <div class="box left-1-3">Left 1/3</div>
-    <div class="box right-3-4">
-      <h1>D A T A</h1>
-    </div>
-    <div class="box left-1-3">
-        <Navbar />
-    </div>
-    <div class="box right-3-4">
-    <div>
-    <h1>S E A R C H</h1>
-    <form onSubmit={handleSubmit2}>
-      <input type="text" placeholder="id" value={searchId} onChange={(e) => setSearchId(e.target.value)}/>
-      <button type="submit">Submit</button>
-    </form>
-    <p>{message}</p>
-  </div>
-  </div>
-    </div>
-  </>
-);
-}
+      <div class="grid-container">
+        <div class="box top-box">
+          <Link className="home-link" to="/">H O M E</Link>
+        </div>
+        <div class="box top-box">
+          <h1>STUDENTS MANAGEMENT SYSTEM</h1>
+        </div>
+        <div class="box bottom-box nav-box">
+            <Navbar />
+        </div>
+        <div class="box bottom-box data-box">
+          <h1>S E A R C H</h1>
+          <form onSubmit={handleSubmit2}>
+            <input type="text" placeholder="id" value={searchId} onChange={(e) => setSearchId(e.target.value)}/>
+            <button type="submit">Submit</button>
+          </form>
+          <p>{message}</p>
+        </div>
+      </div>
+    </>
+)};
 
 
 export default Search;
