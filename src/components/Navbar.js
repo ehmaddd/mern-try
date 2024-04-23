@@ -1,8 +1,6 @@
 import React from 'react';
-import { Link, Routes, Route } from 'react-router-dom';
-import Home from './Home';
-import Insert from './Insert';
-import Search from './Search';
+import { Link } from 'react-router-dom';
+import Webroutes from './Webroutes';
 
 const Navbar = () => {
   return (
@@ -13,6 +11,7 @@ const Navbar = () => {
           <li><Link to="/messages">Messages</Link></li>
         </ul>
       </nav>
+      <Webroutes />
     </>
   );
 };
