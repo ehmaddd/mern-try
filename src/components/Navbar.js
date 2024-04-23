@@ -1,9 +1,13 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { Link, Routes, Route } from 'react-router-dom';
+import Home from './Home';
+import Insert from './Insert';
+import Search from './Search';
 
 const Navbar = () => {
   return (
-    <nav>
+    <>
+      <nav>
       <ul>
         <li>
           <Link to="/">Home</Link>
@@ -16,6 +20,12 @@ const Navbar = () => {
         </li>
       </ul>
     </nav>
+    <Routes>
+      <Route path="/" element={<Home />} />
+      <Route path="/insert" element={<Insert />} />
+      <Route path="/search" element={<Search />} />
+    </Routes>
+    </>
   );
 };
 

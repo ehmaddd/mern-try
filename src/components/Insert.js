@@ -1,10 +1,9 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 const express = require('express');
 const bodyParser = require('body-parser');
 const cors = require('cors');
 const path = require('path');
 const app = express();
-const port = 4000;
 const { Pool } = require('pg');
 
 const pool = new Pool({
@@ -23,7 +22,7 @@ app.use(bodyParser.json());
 // Serve static files from the React app
 app.use(express.static(path.join(__dirname, 'build')));
 
-const Home = () => {
+const Insert = () => {
   const [id, setId] = useState('');
   const [name, setName] = useState('');
 
@@ -68,4 +67,4 @@ const Home = () => {
   );
 };
 
-export default Home;
+export default Insert;
