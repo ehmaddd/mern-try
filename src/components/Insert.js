@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import Navbar from './Navbar';
 
 const Insert = () => {
   const [id, setId] = useState('');
@@ -17,6 +18,16 @@ const Insert = () => {
   }
 
   return (
+    <>
+    <div class="container">
+    <div class="box left-1-3">Left 1/3</div>
+    <div class="box right-3-4">
+      <h1>D A T A</h1>
+    </div>
+    <div class="box left-1-3">
+        <Navbar />
+    </div>
+    <div class="box right-3-4">
     <div>
       <h1>I N S E R T</h1>
       <form onSubmit={handleSubmit}>
@@ -25,7 +36,10 @@ const Insert = () => {
         <button type="submit">Submit</button>
       </form>
     </div>
-  );
+  </div>
+    </div>
+  </>
+);
 };
 
 export default Insert;

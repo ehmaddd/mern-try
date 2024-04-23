@@ -1,4 +1,5 @@
 import { useState } from "react";
+import Navbar from './Navbar';
 
 const Search = () => {
   const [searchId, setSearchId] = useState('');
@@ -18,6 +19,16 @@ const Search = () => {
   };
 
   return (
+    <>
+    <div class="container">
+    <div class="box left-1-3">Left 1/3</div>
+    <div class="box right-3-4">
+      <h1>D A T A</h1>
+    </div>
+    <div class="box left-1-3">
+        <Navbar />
+    </div>
+    <div class="box right-3-4">
     <div>
     <h1>S E A R C H</h1>
     <form onSubmit={handleSubmit2}>
@@ -26,8 +37,10 @@ const Search = () => {
     </form>
     <p>{message}</p>
   </div>
-  );
-
+  </div>
+    </div>
+  </>
+);
 }
 
 
