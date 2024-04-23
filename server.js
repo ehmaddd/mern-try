@@ -79,7 +79,6 @@ app.post('/api/datafetch', async (req, res) => {
   }
 });
 
-
 // Catch all other routes and return the React app
 app.get('*', (req, res) => {
   res.sendFile(path.join(__dirname, 'build', 'index.html'));

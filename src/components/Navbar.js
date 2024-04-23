@@ -8,23 +8,11 @@ const Navbar = () => {
   return (
     <>
       <nav>
-      <ul>
-        <li>
-          <Link to="/">Home</Link>
-        </li>
-        <li>
-          <Link to="/insert">Add Student</Link>
-        </li>
-        <li>
-          <Link to="/search">View Student</Link>
-        </li>
-      </ul>
-    </nav>
-    <Routes>
-      <Route path="/" element={<Home />} />
-      <Route path="/insert" element={<Insert />} />
-      <Route path="/search" element={<Search />} />
-    </Routes>
+        <ul>
+          <li><Link to="/">Home</Link></li>
+          <li><Link to="/messages">Messages</Link></li>
+        </ul>
+      </nav>
     </>
   );
 };
