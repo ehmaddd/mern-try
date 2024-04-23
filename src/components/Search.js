@@ -54,8 +54,10 @@ const Search = () => {
           <form onSubmit={handleSubmit2}>
             <select
             className="student-id"
-            onChange={(e) => setSearchId(e.target.value)}>
-            <option value="null">Select Student Id</option>
+            onChange={(e) => setSearchId(e.target.value)}
+            required
+            >
+            <option value="null">Select Student</option>
             {
             data.map((datum) => {
               return (

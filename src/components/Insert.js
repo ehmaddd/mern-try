@@ -34,8 +34,8 @@ const Insert = () => {
         <div class="box bottom-box data-box">
           <h1 className="title">I N S E R T</h1>
           <form onSubmit={handleSubmit}>
-            <input type="text" placeholder="id" value={id} onChange={(e) => setId(e.target.value)} />
-            <input type="text" placeholder="name" value={name} onChange={(e) => setName(e.target.value)} />
+            <input type="text" placeholder="id" value={id} onChange={(e) => setId(e.target.value)} required />
+            <input type="text" placeholder="name" value={name} onChange={(e) => setName(e.target.value)} required />
             <button type="submit">Submit</button>
           </form>
         </div>
