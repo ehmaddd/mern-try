@@ -26,13 +26,13 @@ const Insert = () => {
           <Link className="home-link" to="/">H O M E</Link>
         </div>
         <div class="box top-box">
-          <h1>STUDENTS MANAGEMENT SYSTEM</h1>
+          <h1 className="header">STUDENTS MANAGEMENT SYSTEM</h1>
         </div>
         <div class="box bottom-box nav-box">
             <Navbar />
         </div>
         <div class="box bottom-box data-box">
-          <h1>I N S E R T</h1>
+          <h1 className="title">I N S E R T</h1>
           <form onSubmit={handleSubmit}>
             <input type="text" placeholder="id" value={id} onChange={(e) => setId(e.target.value)} />
             <input type="text" placeholder="name" value={name} onChange={(e) => setName(e.target.value)} />

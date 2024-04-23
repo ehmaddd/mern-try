@@ -1,10 +1,24 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Navbar from './Navbar';
 import { Link } from "react-router-dom";
 
 const Search = () => {
-  const [searchId, setSearchId] = useState('');
-  const [message, setMessage] = useState('');
+    const [data, setData] = useState([]);
+    const [searchId, setSearchId] = useState('');
+    const [message, setMessage] = useState('');
+
+  const fetchData = async (e) => {
+    const fetchResponse = await fetch('http://localhost:4000/api/fetchid', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+  });
+  const fetchedData = await fetchResponse.json();
+  setData(fetchedData);
+  }
+
+  useEffect(()=> {
+    fetchData();
+  }, [])
 
   const handleSubmit2 = async (e) => {
     e.preventDefault();
@@ -26,13 +40,13 @@ const Search = () => {
           <Link className="home-link" to="/">H O M E</Link>
         </div>
         <div class="box top-box">
-          <h1>STUDENTS MANAGEMENT SYSTEM</h1>
+          <h1 className="header">STUDENTS MANAGEMENT SYSTEM</h1>
         </div>
         <div class="box bottom-box nav-box">
             <Navbar />
         </div>
         <div class="box bottom-box data-box">
-          <h1>S E A R C H</h1>
+          <h1 className="title">S E A R C H</h1>
           <form onSubmit={handleSubmit2}>
             <input type="text" placeholder="id" value={searchId} onChange={(e) => setSearchId(e.target.value)}/>
             <button type="submit">Submit</button>
