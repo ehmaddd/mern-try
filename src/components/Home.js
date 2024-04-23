@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import Navbar from './Navbar';
 
 const Home = () => {
   const [data, setData] = useState([]);
@@ -17,8 +18,16 @@ const Home = () => {
   }, [])
 
   return (
-    <div>
-      <h1>D A T A</h1>
+    <>
+      <div class="container">
+      <div class="box left-1-3">Left 1/3</div>
+      <div class="box right-3-4">
+        <h1>D A T A</h1>
+      </div>
+      <div class="box left-1-3">
+          <Navbar />
+      </div>
+      <div class="box right-3-4">
       <table>
   <thead>
     <tr>
@@ -36,6 +45,10 @@ const Home = () => {
   </tbody>
 </table>
     </div>
+      </div>
+    </>
+
+
   );
 };
 
