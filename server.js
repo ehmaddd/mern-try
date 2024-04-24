@@ -46,7 +46,7 @@ app.post('/api/dataget', async (req, res) => {
   try {
     const client = await pool.connect();
     const result = await client.query(
-      'SELECT name FROM student WHERE id = $1',
+      'SELECT * FROM student WHERE id = $1',
       [id]
     );
     const user = result.rows[0];
