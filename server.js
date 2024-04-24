@@ -23,7 +23,7 @@ app.use(bodyParser.json());
 // Serve static files from the React app
 app.use(express.static(path.join(__dirname, 'build')));
 
-// API endpoint to receive and return data
+// API endpoint to save data and return status
 app.post('/api/data', async (req, res) => {
   const { id, name } = req.body;
   try {
@@ -41,6 +41,7 @@ app.post('/api/data', async (req, res) => {
   }
 });
 
+// Get data based on specific id
 app.post('/api/dataget', async (req, res) => {
   const { id } = req.body;
   try {
@@ -61,6 +62,7 @@ app.post('/api/dataget', async (req, res) => {
   }
 });
 
+// Get all data of all students
 app.post('/api/datafetch', async (req, res) => {
   try {
     const client = await pool.connect();
@@ -79,6 +81,7 @@ app.post('/api/datafetch', async (req, res) => {
   }
 });
 
+//Get id for all students
 app.post('/api/fetchid', async (req, res) => {
   try {
     const client = await pool.connect();
@@ -94,6 +97,24 @@ app.post('/api/fetchid', async (req, res) => {
   } catch (err) {
     console.error('Error executing query', err);
     res.status(500).json({ error: 'Error fetching user data' });
+  }
+});
+
+//Update data of a specific id
+app.post('/api/updatedata', async (req, res) => {
+  const { id, name } = req.body;
+  try {
+    const client = await pool.connect();
+    const result = await client.query(
+      'UPDATE student SET name=$2 WHERE id=$1',
+      [id, name]
+    );
+    const newUser = result.rows[0];
+    client.release();
+    res.status(201).json(newUser);
+  } catch (err) {
+    console.error('Error executing query', err);
+    res.status(500).json({ error: 'Error creating user' }); // Updated error response
   }
 });
 
