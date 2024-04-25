@@ -132,7 +132,7 @@ app.post('/api/deletedata', async (req, res) => {
     res.status(201).json(newUser);
   } catch (err) {
     console.error('Error executing query', err);
-    res.status(500).json({ error: 'Error creating user' }); // Updated error response
+    res.status(500).json({ error: 'Error creating user' });
   }
 });
 
