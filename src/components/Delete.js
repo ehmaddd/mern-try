@@ -71,6 +71,7 @@ const Delete = () => {
             })
             }
             </select>
+            <button type="submit">Update</button>
           </form>
         </div>
       </div>
