@@ -118,6 +118,24 @@ app.post('/api/updatedata', async (req, res) => {
   }
 });
 
+//Delete data of a specific id
+app.post('/api/deletedata', async (req, res) => {
+  const { id } = req.body;
+  try {
+    const client = await pool.connect();
+    const result = await client.query(
+      'DELETE FROM student WHERE id=$1',
+      [id]
+    );
+    const newUser = result.rows[0];
+    client.release();
+    res.status(201).json(newUser);
+  } catch (err) {
+    console.error('Error executing query', err);
+    res.status(500).json({ error: 'Error creating user' }); // Updated error response
+  }
+});
+
 // Catch all other routes and return the React app
 app.get('*', (req, res) => {
   res.sendFile(path.join(__dirname, 'build', 'index.html'));
