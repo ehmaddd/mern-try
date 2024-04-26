@@ -44,17 +44,17 @@ const Delete = () => {
 
   return (
     <>
-      <div class="grid-container">
-        <div class="box top-box">
+      <div className="grid-container">
+        <div className="box top-box">
           <Link className="home-link" to="/">H O M E</Link>
         </div>
-        <div class="box top-box">
+        <div className="box top-box">
           <h1 className="header">STUDENTS MANAGEMENT SYSTEM</h1>
         </div>
-        <div class="box bottom-box nav-box">
+        <div className="box bottom-box nav-box">
             <Navbar />
         </div>
-        <div class="box bottom-box data-box">
+        <div className="box bottom-box data-box">
           <h1 className="title">D E L E T E</h1>
           <form onSubmit={handleSubmit}>
           <select
