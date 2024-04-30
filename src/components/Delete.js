@@ -22,6 +22,7 @@ const Delete = () => {
     }
   }
 
+  // fetch data initially
   useEffect(()=> {
     fetchData();
   }, [])
