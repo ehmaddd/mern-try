@@ -44,6 +44,7 @@ const Delete = () => {
     }
   }
 
+  // Show on the webpage
   return (
     <>
       <div className="grid-container">
