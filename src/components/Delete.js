@@ -27,6 +27,7 @@ const Delete = () => {
     fetchData();
   }, [])
 
+  // Action after button click
   const handleSubmit = async (e) => {
     e.preventDefault();
     if(delId){
