@@ -6,6 +6,7 @@ import './style.css';
 const Home = () => {
   const [data, setData] = useState([]);
 
+  //Get all data from database
   const fetchData = async (e) => {
     const fetchResponse = await fetch('http://localhost:4000/api/datafetch', {
     method: 'POST',
@@ -15,6 +16,7 @@ const Home = () => {
   setData(fetchedData);
   }
 
+  //Get data on refresh
   useEffect(()=> {
     fetchData();
   }, [])
